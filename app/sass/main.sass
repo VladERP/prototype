@@ -1,12 +1,67 @@
 body
-	background-color: #ffffff
-.user-link
-	color: white
-	&:hover
-		color: rgba(255,255,255,.5)
-	.user-img
-	    width: 50px
-	    height: 50px
-	    border-radius: 50%
-	    object-fit: cover
-	    margin-right: 5px
+	background-color: #EAEAEA
+	font-size: 18px
+.user-wrap
+	position: relative	
+	.user-link
+		color: white
+		&:hover
+			color: rgba(255,255,255,.5)
+		.user-img
+		    width: 50px
+		    height: 50px
+		    border-radius: 50%
+		    object-fit: cover
+		    margin-right: 5px
+		.user-staf
+			font-size: 0.7em
+			position: absolute
+			right: 4.75em
+			top: 37px 
+
+
+.content-sect
+	position: relative
+	height: auto
+	.content-window
+		position: absolute
+		width: 49%
+		height: 700px
+		//border: 1px solid black
+		margin: 0.7%
+		border-radius: 5px
+		box-shadow: 0 0 10px rgba(0,0,0,0.5)
+		& h1
+			font-size: 1.5em
+			margin: 0 auto
+			text-align: center
+			margin-bottom: 5px
+		.icon-wrap
+			position: absolute	
+			top: 4px
+			right: 15px
+			.task-icon__top
+				margin-left: 7px
+				cursor: pointer
+				&:hover
+					color: #6B6B6B
+		.task-wrap
+			width: 100%
+			box-shadow: 0 0 3px rgba(0,0,0,0.5)
+			height: 100px
+			position: relative
+			border-radius: 3px
+			display: flex
+			align-items: center
+			.task-icon__task
+				margin-left: 10px
+				font-size: 1.8em
+				color: red
+			.task-title
+				margin-left: 10px
+		.sort-link
+			margin: 10px
+	.content-window__right
+		right: 0px
+
+

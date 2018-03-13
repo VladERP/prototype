@@ -6,9 +6,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -24,14 +26,47 @@
     <div class="user-wrap dropdown">
     <a class="nav-link dropdown-toggle navbar-toggler-right user-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img src="img/avatar.jfif" alt="Иванов И.И." class="user-img">Иванов И.И.
-        </a>
+       <span class="user-staf">Программист</span> </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">Личный кабинет</a>
           <a class="dropdown-item" href="#">Выход</a>
         </div>
-    </div>    
+    </div> 
+    </div>   
 </nav>
+<section class="content-sect">
+    <div class="content-window">
+      <h1>Задачи</h1>
+      <div class="dropdown show">
+        <a class="btn btn-secondary dropdown-toggle sort-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Сортировка
+        </a>
 
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="#">Ожидают выполнение</a>
+          <a class="dropdown-item" href="#">В процессе</a>
+          <a class="dropdown-item" href="#">Выполненные</a>
+        </div>
+      </div>
+      <div class="icon-wrap">   
+          <i class="fas fa-expand task-icon__top"></i> 
+          <i class="fas fa-question task-icon__top"></i>
+      </div>
+      <div class="task-wrap">
+          <i class="fas fa-lightbulb fa-2x task-icon__task"></i>
+          <a href="#" class="task-title">Реализовать платежную систему на странице "name"</a>
+      </div>
+    </div>
+    <div class="content-window content-window__right">
+        <h1>Баги</h1>
+        <div class="icon-wrap">   
+           <i class="fas fa-expand task-icon__top"></i> 
+           <i class="fas fa-question task-icon__top"></i>
+      </div> 
+      
+    </div>
+</section>
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
