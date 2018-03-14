@@ -1,5 +1,6 @@
-$(function() {
-
-	// Пользовательские функции
-
+new Vue({
+  el: '#left-window',
+  data: {
+    hide: false
+  }
 });
