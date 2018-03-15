@@ -25,11 +25,12 @@ body {
 .content-sect {
   position: relative;
   height: auto; }
-  .content-sect .content-window {
+  .content-sect .content-window__home {
     position: absolute;
     width: 49%;
     height: auto;
-    margin: 0.7%;
+    margin: 0.7%; }
+  .content-sect .content-window {
     -webkit-border-radius: 5px;
             border-radius: 5px;
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -99,3 +100,11 @@ body {
       margin: 10px; }
   .content-sect .content-window__right {
     right: 0px; }
+  .content-sect .staff-avatar {
+    width: 200px;
+    height: 250px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border: 1px solid black;
+    margin-right: 7px;
+    float: left; }
