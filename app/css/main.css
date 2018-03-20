@@ -202,3 +202,9 @@ body {
         -webkit-align-items: center;
             -ms-flex-align: center;
                 align-items: center; }
+  .content-sect .reference-wrap {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 30px; }
+  .content-sect .reference-wrap img {
+    width: 100%; }

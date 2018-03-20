@@ -18,9 +18,11 @@
                 <a href="#" class="nav-link">Главная</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Справка</a>
+                <a href="reference.html" class="nav-link">Справка</a>
             </li>
-             
+            <li class="nav-item">
+                <a href="#myModal" class="btn btn-primary" data-toggle="modal">Создать задачу</a> 
+            </li> 
         </ul>
     </div>
     <div class="user-wrap dropdown">
@@ -34,7 +36,29 @@
     </div> 
     </div>   
 </nav>
+ <div id="myModal" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <!-- Заголовок модального окна -->
+      <div class="modal-header">
+        
+        <h4 class="modal-title">Создать задачу</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      </div>
+      <!-- Основное содержимое модального окна -->
+      <div class="modal-body">
+        Содержимое модального окна...
+      </div>
+      <!-- Футер модального окна -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+        <button type="button" class="btn btn-primary">Сохранить изменения</button>
+      </div>
+    </div>
+  </div>
+</div>
 <section class="content-sect">
+ 
     <div class="content-window content-window__home" id="left-window">
       <h1>Задачи</h1>
       <div class="dropdown show filter">
