@@ -8,16 +8,10 @@
     <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+   
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js"></script>
-    <script src="libs/moment-with-locales.min.js"></script>
-    <script src="libs/bootstrap-datetimepicker.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script srt="js/common.js"></script>
-    
+ 
+   
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -65,13 +59,7 @@
           
 
       <div id="summernote"></div>
-    <script>
-      $('#summernote').summernote({
-        placeholder: 'Введите описание задачи',
-        tabsize: 2,
-        height: 100
-      });
-    </script>
+
         <p class="form-task__p">Критичность</p>
     <select name="form-control" id="" class="staf-exe">
             <option>Критическая</option>
@@ -199,7 +187,28 @@
 
 
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-<script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>  
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+   
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+    <script src="libs/moment-with-locales.min.js"></script>
+    
+ 
+   
+    <script srt="js/common.js"></script>
+
+        <script>
+      $('#summernote').summernote({
+        placeholder: 'Введите описание задачи',
+        tabsize: 2,
+        height: 100
+      });
+    </script>
+
+    <script>
 var example1 = new Vue({
   el: '#task-wrap',
   data: {
@@ -209,10 +218,12 @@ var example1 = new Vue({
       datestart: 'c 14.03.2018 12:00',
       dateend: 'по 15.03.2018 12:00'
    
+  },
+   methods:{
+      
   }
 })
 
 </script>
-
 </body>
 </html>
