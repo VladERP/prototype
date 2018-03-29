@@ -189,3 +189,12 @@ body {
 
 .staf-exe {
   width: 300px; }
+
+.switch-transition {
+  transition: all .5s ease-in; }
+
+.switch-enter {
+  left: 100%; }
+
+.switch-leave {
+  left: -100%; }

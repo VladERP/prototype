@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
- 
+
    
 </head>
 <body>
@@ -117,43 +117,16 @@
 
         </div>
       </div>
-      
-      <div class="task-wrap">
-          <i class="fas fa-lightbulb fa-2x task-icon__task" style="color: #E7A900;"></i>
-          <a href="#" class="task-title">Реализовать платежную систему на странице "name"</a>
-          <div class="task-staf">
-              <p class="task-staf__p">Автор:</p>
-              <a href="#" class="task-staf__a">Иванов И.В.</a>
-          </div>
-          <div class="task-date">
-              <p class="task-date__p date-start">c 14.03.2018 12:00</p>
-              <p class="task-date__p date-end">по 15.03.2018 12:00</p>
-          </div>
-      </div>
-      <div class="task-wrap">
-          <i class="fas fa-lightbulb fa-2x task-icon__task" style="color: green;"></i>
-          <a href="#" class="task-title">Реализовать платежную систему на странице "name"</a>
-          <div class="task-staf">
-              <p class="task-staf__p">Автор:</p>
-              <a href="#" class="task-staf__a">Иванов И.В.</a>
-          </div>
-          <div class="task-date">
-              <p class="task-date__p date-start">c 14.03.2018 12:00</p>
-              <p class="task-date__p date-end">по 15.03.2018 12:00</p>
-          </div>
-      </div>
-      <div class="task-wrap">
-          <i class="fas fa-lightbulb fa-2x task-icon__task" style="color: #828282;"></i>
-          <a href="#" class="task-title">Реализовать платежную систему на странице "name"</a>
-          <div class="task-staf">
-              <p class="task-staf__p">Автор:</p>
-              <a href="#" class="task-staf__a">Иванов И.В.</a>
-          </div>
-          <div class="task-date">
-              <p class="task-date__p date-start">c 14.03.2018 12:00</p>
-              <p class="task-date__p date-end">по 15.03.2018 12:00</p>
-          </div>
-      </div>
+              
+
+        
+        
+       <v-task  transition="switch"> 1 fgsdfgdfg</v-task>
+         <v-task  transition="switch">2 dfgdfgfdg</v-task> 
+          <v-task  transition="switch">3 dfgdfdfgdf</v-task> 
+           <v-task  transition="switch">4 dfgdfgdfg</v-task> 
+
+
     </div>
     <div class="content-window content-window__right content-window__home">
         <h1>Баги</h1>
@@ -162,14 +135,33 @@
            <i class="fas fa-question task-icon__top"></i>
       </div> 
       
-   
-       
+
+ 
      
     </div>
     
-    
+   
 </section>
 
+<template id="task-wrap-temp">
+    
+   <div class="task-wrap" v-show="active">
+          <i class="fas fa-lightbulb fa-2x task-icon__task" style="color: #E7A900;"></i>
+          <a href="#" class="task-title"><slot></slot></a>
+          
+          <div class="task-staf">
+              <p class="task-staf__p">Автор:</p>
+              <a href="#" class="task-staf__a">Иванов И.В.</a>
+          </div>
+          <div class="task-date">
+              <p class="task-date__p date-start">c 14.03.2018 12:00</p>
+              <p class="task-date__p date-end">по 15.03.2018 12:00</p>
+          </div>
+          <button class="btn" @click="onCancel()">Отмена</button>
+        <!-- <a class="link" href="#" @click="open()">ссылка</a> -->
+      </div>
+
+  </template>   
 
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
@@ -178,7 +170,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
    
    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
     <script src="libs/moment-with-locales.min.js"></script>
     <script src="libs/summernote/lang/summernote-ru-RU.js"></script>
  
@@ -196,6 +188,34 @@
         lang: 'ru-RU'
 
       });
+
+      Vue.component('v-task', {
+            template: '#task-wrap-temp',
+              data: function() {
+                return {
+                    active: true
+                }
+            },
+
+             methods: {
+                open: function() {
+                    this.active = true
+                },
+                close: function() {
+                    this.active = false
+                },
+                onCancel: function() {
+                    this.close();
+                }
+            }
+           
+        })
+
+      new Vue({
+            el: "#left-window",
+
+            
+        })
 
     </script>
 
