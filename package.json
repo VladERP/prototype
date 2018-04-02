@@ -25,8 +25,11 @@
     "imagemin-pngquant": "^5.0.1"
   },
   "dependencies": {
+    "luxon": "^1.0.0",
     "vue": "^2.5.16",
+    "vue-datetime": "^1.0.0-beta.3",
     "vue-datetime-picker": "^0.2.1",
-    "vuejs-datepicker": "^0.9.29"
+    "vuejs-datepicker": "^0.9.29",
+    "weekstart": "^1.0.0"
   }
 }

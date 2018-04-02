@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha18/css/tempusdominus-bootstrap-4.min.css" />
    
 </head>
 <body>
+   
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
@@ -41,6 +42,7 @@
     </div> 
     </div>   
 </nav>
+<div id="wrapper">
  <div id="myModal" class="modal fade">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -54,9 +56,9 @@
       <!-- Основное содержимое модального окна -->
       <div class="modal-body">
         <form id="task-form" class="form" method="post" >
-          <!-- <p class="form-task__p">Заголовок задачи</p> -->
+    
           <input type="text" class="form-control title-task"  placeholder="Введите заголовок">
-          
+
 
       <textarea id="summernote" v-model="title" name="editordata"></textarea> 
 
@@ -72,16 +74,63 @@
             <option>Иванов И.В.</option>
             <option>Петров П.И</option>
           </select>
+
+
+          
  <div class="form-group">
     <p class="form-task__p">Прикрепить файл</p>
     <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
     <small id="fileHelp" class="form-text text-muted">Ограничения для файлов</small>
   </div>
-  <button type="button" role="button" class="btn btn-primary" v-on:click="addtaskform">Сохранить изменения</button>
+       
+
+
+
+<div class="container">
+    <div class='col-md-5'>
+        <div class="form-group">
+           <div class="input-group date" id="datetimepicker7" data-target-input="nearest">
+                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker7"/>
+                <div class="input-group-append" data-target="#datetimepicker7" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-5'>
+        <div class="form-group">
+           <div class="input-group date" id="datetimepicker8" data-target-input="nearest">
+                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker8"/>
+                <div class="input-group-append" data-target="#datetimepicker8" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker();
+        $('#datetimepicker2').datetimepicker({
+            useCurrent: false
+        });
+        $("#datetimepicker1").on("change.datetimepicker", function (e) {
+            $('#datetimepicker2').datetimepicker('minDate', e.date);
+        });
+        $("#datetimepicker2").on("change.datetimepicker", function (e) {
+            $('#datetimepicker1').datetimepicker('maxDate', e.date);
+        });
+    });
+</script>
+
+
+
+
     </form>
       </div>
       <!-- Футер модального окна -->
       <div class="modal-footer">
+        <button type="button" role="button" class="btn btn-primary" data-dismiss="modal" @click="show = !show">Сохранить изменения</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
         
       </div>
@@ -119,13 +168,17 @@
       </div>
               
 
+       
         
-        
-       <v-task  transition="switch"> 1 fgsdfgdfg</v-task>
-         <v-task  transition="switch">2 dfgdfgfdg</v-task> 
-          <v-task  transition="switch">3 dfgdfdfgdf</v-task> 
-           <v-task  transition="switch">4 dfgdfgdfg</v-task> 
-
+      
+       <v-task v-if="show">
+         <a slot="title" href="#" class="task-title"> Добавить форму заказа</a>
+         <a slot="staff" href="#" class="task-staf__a">Иванов П.И.</a>
+         <p slot="date_start" class="task-date__p date-start"> с 12.03.2018</p>
+         <p slot="date-end" class="task-date__p date-end">по 12.03.2018</p>
+       </v-task>
+      
+       
 
     </div>
     <div class="content-window content-window__right content-window__home">
@@ -142,80 +195,72 @@
     
    
 </section>
+</div> 
+
+
+
 
 <template id="task-wrap-temp">
-    
-   <div class="task-wrap" v-show="active">
+ <transition name="slide-fade">
+   <div class="task-wrap" >
           <i class="fas fa-lightbulb fa-2x task-icon__task" style="color: #E7A900;"></i>
-          <a href="#" class="task-title"><slot></slot></a>
+          <slot name = "title"></slot>
           
           <div class="task-staf">
               <p class="task-staf__p">Автор:</p>
-              <a href="#" class="task-staf__a">Иванов И.В.</a>
+              <slot name = "staff"></slot>
           </div>
           <div class="task-date">
-              <p class="task-date__p date-start">c 14.03.2018 12:00</p>
-              <p class="task-date__p date-end">по 15.03.2018 12:00</p>
+             <slot name = "date_start"></slot>
+             <slot name = "date-end"></slot> 
           </div>
-          <button class="btn" @click="onCancel()">Отмена</button>
-        <!-- <a class="link" href="#" @click="open()">ссылка</a> -->
+          
       </div>
-
+ </transition>
   </template>   
 
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+  <script type="text/javascript" src="libs/moment-with-locales.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha18/js/tempusdominus-bootstrap-4.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
    
    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
-    <script src="libs/moment-with-locales.min.js"></script>
+    
     <script src="libs/summernote/lang/summernote-ru-RU.js"></script>
  
    
-    <script srt="js/common.js"></script>
+    <script src="js/common.js"></script>
 
         <script>
 
-          // summernote - текстовый редактор
+  
+        
           
-      $('#summernote').summernote({
-        placeholder: 'Введите описание задачи',
-        tabsize: 2,
-        height: 100,
-        lang: 'ru-RU'
+    Vue.component('v-task', {
+            template: '#task-wrap-temp'
+              
+            
 
-      });
-
-      Vue.component('v-task', {
-            template: '#task-wrap-temp',
-              data: function() {
-                return {
-                    active: true
-                }
-            },
-
-             methods: {
-                open: function() {
-                    this.active = true
-                },
-                close: function() {
-                    this.active = false
-                },
-                onCancel: function() {
-                    this.close();
-                }
-            }
+            
            
         })
 
       new Vue({
-            el: "#left-window",
+            el: "#wrapper",
+            data: {
+                
+                    show: false
+                }
 
             
         })
+
+      
 
     </script>
 
